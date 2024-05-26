@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Remove Items</title>
+        <link rel="stylesheet" href="cafepage.css">
+    </head>
+    <body>
+        <header class="header">
+            <a href="#" class="logo">Cafe <i class="fas fa-coffee"></i></a>
+            <nav class="navbar">
+                <a href="#">Home</a>
+                <a href="#">Orders</a>
+                <a href="#">Menu</a>
+                <a href="#">Staff</a>
+                <a href="#">Settings</a>
+            </nav>
+            <div id="menu-btn" class="fas fa-bars"></div>
+        </header>
+
+        <section class="remove">
+            <h2>Remove Items</h2>
+            <ul class="item-list">
+                <!-- Items will be dynamically added here -->
+            </ul>
+        </section>
+
+        <section class="footer">
+            <div class="box-container">
+                <div class="box">
+                    <h3>our branches</h3>
+                    <a href="#"><i class="fas fa-arrow-right"></i> india</a>
+                    <a href="#"><i class="fas fa-arrow-right"></i> USA</a>
+                    <a href="#"><i class="fas fa-arrow-right"></i> france</a>
+                    <a href="#"><i class="fas fa-arrow-right"></i> africa</a>
+                    <a href="#"><i class="fas fa-arrow-right"></i> japan</a>
+                </div>
+        
+                <div class="box">
+                    <h3>quick links</h3>
+                    <a href="#">Home</a>
+                    <a href="#">Orders</a>
+                    <a href="#">Menu</a>
+                    <a href="#">Staff</a>
+                    <a href="#">Settings</a>
+                </div>
+        
+                <div class="box">
+                    <h3>contact info</h3>
+                    <a href="#"><i class="fas fa-phone"></i> +201004607056</a>
+                    <a href="#"><i class="fas fa-phone"></i> +201111111111</a>
+                    <a href="#"><i class="fas fa-envelope"></i> coffee@gmail.com</a>
+                    <a href="#"><i class="fas fa-envelope"></i> Alamain, Egypt</a>
+                </div>
+        
+                <div class="box">
+                    <h3>contact info</h3>
+                    <a href="#"><i class="fab fa-facebook-f"></i> facebook</a>
+                    <a href="#"><i class="fab fa-twitter"></i> twitter</a>
+                    <a href="#"><i class="fab fa-instagram"></i> instagram</a>
+                    <a href="#"><i class="fab fa-linkedin"></i> linkedin</a>
+                    <a href="#"><i class="fab fa-twitter"></i> twitter</a>
+                </div>
+            </div>
+        </section>
+        <script>
+                // Function to fetch and display the list of items to remove
+                function displayItemsToRemove() {
+                    const itemList = document.querySelector('.item-list');
+                    itemList.innerHTML = ''; // Clear previous items
+            
+                    // Retrieve items from localStorage
+                    let items = JSON.parse(localStorage.getItem('menuItems')) || [];
+            
+                    // Loop through the items and create list items for each item
+                    items.forEach(item => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = item.name; // Assuming item has a 'name' property
+                        const removeButton = document.createElement('button');
+                        removeButton.textContent = 'Remove';
+                        removeButton.addEventListener('click', () => removeItem(item)); // Pass the item object to removeItem function
+                        listItem.appendChild(removeButton);
+                        itemList.appendChild(listItem);
+                    });
+                }
+            
+                // Function to remove an item
+                function removeItem(item) {
+                    // Simulate item removal
+                    removeFromLocalStorage(item);
+                    displayItemsToRemove(); // Update the UI after removal
+                }
+            
+                // Function to remove item from local storage
+                function removeFromLocalStorage(item) {
+                    let items = JSON.parse(localStorage.getItem('menuItems')) || [];
+                    items = items.filter(i => i.id !== item.id);
+                    localStorage.setItem('menuItems', JSON.stringify(items));
+                }
+            
+                // Call the function to initially display the items to remove
+                displayItemsToRemove();
+            
+        </script>
+    </body>
+</html>

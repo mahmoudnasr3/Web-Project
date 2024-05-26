@@ -104,31 +104,10 @@
             </div>
         </div>
     </section>
+    
     <script src="buy.js"></script>
     <!-- SWIPER -->
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const buyTable = document.getElementById('buy-table');
-            let items = JSON.parse(localStorage.getItem('menuItems')) || [];
-
-            items.forEach(item => {
-                const div = document.createElement('div');
-                div.className = 'buy-item';
-
-                div.innerHTML = `
-                    <img src="${item.image}">
-                    <div class="content">
-                        <h3>${item.name}</h3>
-                        <span>$${item.price}</span>
-                        <button class="add-to-cart-btn">Add to Cart</button>
-                    </div>
-                `;
-
-                buyTable.appendChild(div);
-            });
-        });
-    </script>
 </body>
 
 </html>
