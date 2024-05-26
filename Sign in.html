@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sign In</title>
+    <link rel="stylesheet" href="cafepage.css">
+</head>
+
+<body>
+    <header class="header">
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+        <a href="index.html" class="logo">coffee <i class="fas fa-mug-hot"></i></a>
+
+        <nav class="navbar">
+            <a href="index.html#home">home</a>
+            <a href="index.html#about">about</a>
+            <a href="menu.html">menu</a>
+            <a href="index.html#book">book</a>
+        </nav>
+
+        <a href="#" class="btn">Sign in</a>
+    </header>
+
+    <section class="form-container">
+        <div class="form-wrapper sign-in active">
+            <h2 class="heading">Sign In</h2>
+            <form class="form">
+                <input type="email" placeholder="Email address" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn">Sign In</button>
+                <p class="or">or</p>
+                <button type="button" class="btn">
+                    Continue with Amazon
+                    <img src="image/amazon.png" alt="Button Image">
+                </button>
+                <button type="button" class="btn">
+                    Continue with Facebook
+                    <img src="image/facebook.png" alt="Button Image">
+                </button>
+                <button type="button" class="btn">
+                    Continue with Google
+                    <img src="image/google.png" alt="Button Image">
+                </button>
+                <button type="button" class="btn">
+                    Continue with Apple
+                    <img src="image/apple.png" alt="Button Image">
+                </button>
+                <p class="toggle-link">Need an account? <a href="#" onclick="toggleForm()">Sign up</a></p>
+            </form>
+        </div>
+        <div class="form-wrapper sign-up">
+            <h2 class="heading">Sign Up</h2>
+            <form class="form" id="signup-form">
+                <input type="text" placeholder="Name" required>
+                <input type="number" placeholder="Phone Number" required>
+                <input type="email" placeholder="Email address" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <input type="password" id="confirmPassword" placeholder="Confirm password">
+                <button type="submit" class="btn">Sign UP</button>
+                <p class="toggle-link">Already have an account? <a href="#" onclick="toggleForm()">Sign in</a></p>
+            </form>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>our branches</h3>
+                <a href="#"><i class="fas fa-arrow-right"></i> india</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> USA</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> france</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> africa</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> japan</a>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="index.html#home"><i class="fas fa-arrow-right"></i> home</a>
+                <a href="index.html#about"><i class="fas fa-arrow-right"></i> about</a>
+                <a href="menu.html"><i class="fas fa-arrow-right"></i> menu</a>
+                <a href="index.html#book"><i class="fas fa-arrow-right"></i> book</a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"><i class="fas fa-phone"></i> +201004607056</a>
+                <a href="#"><i class="fas fa-phone"></i> +201111111111</a>
+                <a href="#"><i class="fas fa-envelope"></i> coffee@gmail.com</a>
+                <a href="#"><i class="fas fa-envelope"></i> Alamain, Egypt</a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"><i class="fab fa-facebook-f"></i> facebook</a>
+                <a href="#"><i class="fab fa-twitter"></i> twitter</a>
+                <a href="#"><i class="fab fa-instagram"></i> instagram</a>
+                <a href="#"><i class="fab fa-linkedin"></i> linkedin</a>
+                <a href="#"><i class="fab fa-twitter"></i> twitter</a>
+            </div>
+        </div>
+    </section>
+    <script src="sign-in.js"></script>
+    <!-- SWIPER -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Buy Page</title>
+    <link rel="stylesheet" href="cafepage.css">
+</head>
+
+<body>
+    <header class="header">
+        <div id="buy-btn" class="fas fa-bars"></div>
+        <a href="index.html" class="logo">coffee <i class="fas fa-mug-hot"></i></a>
+        <nav class="navbar">
+            <a href="index.html#home">home</a>
+            <a href="index.html#about">about</a>
+            <a href="menu.html">menu</a>
+            <a href="index.html#book">book</a>
+        </nav>
+        <a href="Sign in.html" class="btn">Sign in</a>
+    </header>
+
+    <section class="secondary-header">
+        <div class="container">
+            <div class="greeting">Good Morning! Guest</div>
+            <div class="search-filter">
+                <input type="text" placeholder="Search" class="search-bar">
+                <button class="filter-btn">Filter</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="nav-sections">
+        <ul>
+            <li class="section" id="drinks">Drinks</li>
+            <li class="section active" id="coffee">Coffee</li>
+            <li class="section" id="bakery">Bakery</li>
+            <li class="section" id="beans">Beans</li>
+        </ul>
+    </section>
+
+    <section class="buy">
+        <h2 class="heading">Buy Items</h2>
+        <div class="buy-table" id="buy-table">
+            <!-- Items will be injected here -->
+        </div>
+    </section>
+
+    <section class="cart-payment">
+        <div class="cart">
+            <h2>Your Cart</h2>
+            <ul class="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </ul>
+            <div class="total">
+                <h3>Total: $<span id="total-price">0.00</span></h3>
+            </div>
+        </div>
+        <div class="payment-methods">
+            <h2>Payment Methods</h2>
+            <ul>
+                <li><input type="radio" class="fas fa-credit-card">Credit Card <img src="image/credit.png"> </li>
+                <li><input type="radio" class="fas fa-paypal"> PayPal <img src="image/paypal.png"></li>
+                <li><input type="radio" class="fas fa-google-wallet"> Google Wallet <img src="image/wallet.png"></li>
+                <li><input type="radio" class="fas fa-apple-pay"> Apple Pay <img src="image/applepay.png"></li>
+            </ul>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>our branches</h3>
+                <a href="#"><i class="fas fa-arrow-right"></i> india</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> USA</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> france</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> africa</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> japan</a>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="index.html#home"><i class="fas fa-arrow-right"></i> home</a>
+                <a href="index.html#about"><i class="fas fa-arrow-right"></i> about</a>
+                <a href="menu.html"><i class="fas fa-arrow-right"></i> menu</a>
+                <a href="index.html#book"><i class="fas fa-arrow-right"></i> book</a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"><i class="fas fa-phone"></i> +201004607056</a>
+                <a href="#"><i class="fas fa-phone"></i> +201111111111</a>
+                <a href="#"><i class="fas fa-envelope"></i> coffee@gmail.com</a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> Alamain, Egypt</a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"><i class="fab fa-facebook-f"></i> facebook</a>
+                <a href="#"><i class="fab fa-twitter"></i> twitter</a>
+                <a href="#"><i class="fab fa-instagram"></i> instagram</a>
+                <a href="#"><i class="fab fa-linkedin"></i> linkedin</a>
+                <a href="#"><i class="fab fa-twitter"></i> twitter</a>
+            </div>
+        </div>
+    </section>
+    <script src="buy.js"></script>
+    <!-- SWIPER -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buyTable = document.getElementById('buy-table');
+            let items = JSON.parse(localStorage.getItem('menuItems')) || [];
+
+            items.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'buy-item';
+
+                div.innerHTML = `
+                    <img src="${item.image}">
+                    <div class="content">
+                        <h3>${item.name}</h3>
+                        <span>$${item.price}</span>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                `;
+
+                buyTable.appendChild(div);
+            });
+        });
+    </script>
+</body>
+
+</html>
